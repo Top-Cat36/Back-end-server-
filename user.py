@@ -1,4 +1,4 @@
-import data as d
+import gdata as g
 class user:
     #cid - current id, name - user name, passwd - password, access level
     def __init__(self,cid,alvl,name,email,passwd):
@@ -11,13 +11,13 @@ class user:
     #login
     def login(self,name,email,passwd):
         #get all data
-        all=d.getdata()
-        #if (uname or email) match whith password login, ur - user
+        all=g.getdata()
+        #if (uname or email) match whith password login, bv - buffer variable
         for i in all:
-            ur=all[i]
-            if name==ur["name"] or email == ur["email"]:
-                if passwd==ur["passwd"]:
-                    user.__init__(self,cid=ur, alvl=ur["alvl"], name=ur["name"],email=ur["email"],passwd=ur["passwd"] )
-                    return "completed successful, now you are:"+str(name)
+            bv=all[i]
+            if name==bv["name"] or email == bv["email"]:
+                if passwd==bv["passwd"]:
+                    user.__init__(self,cid=bv, alvl=bv["alvl"], name=bv["name"],email=bv["email"],passwd=bv["passwd"] )
+                    return "completed successful, now you are: "+str(name)
                 else:return "wrong password"
-        return "no user whith this name"+str(name)
+        return "no user whith this name: "+str(name)

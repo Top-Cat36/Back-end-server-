@@ -1,7 +1,14 @@
+
 import user as u
-import data as d
+import gdata as g
+import wdata
+import wdata as w
+
 #current user as default guest
-cu=u.user("",0,"guest","","")
+u=u.user("",0,"guest","","")
 
+print(g.getdata())
 
-print()
+print(u.login("root","","1234"))
+
+print(wdata.deluser(int(u.alvl),0))
