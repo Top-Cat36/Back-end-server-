@@ -82,3 +82,34 @@ def getfid():
         else:return int(d+1)
         c+=1
     else:return d+1
+
+#save input if type(t) bool and return False all ok else not
+def savech(t: str,text: str,bl=["~"]):
+    match t:
+        case "bool":
+            if text=="0" or text.lower()=="false":
+                return False
+            else:
+                return bool(text)
+
+        case "int":
+            try:
+                text = int(text)
+                return text
+            finally:
+                return False
+
+        case "float":
+                try:
+                    text=float(text)
+                    return text
+                finally:
+                    return False
+
+        case "str":
+            text = text.lower()
+            for i in bl:
+                i = str(i)
+                if text.find(i.lower()) != -1:
+                    return False
+            return text
